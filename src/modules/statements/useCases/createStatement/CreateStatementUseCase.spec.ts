@@ -76,9 +76,8 @@ describe('Create Statement', () => {
     expect(balance.balance).toEqual(50)
   })
 
-  //TODO Create withdraw statement error
   it('should not be able to withdraw a statement greater than balance', async () => {
-    expect(async () => {
+    await expect(async () => {
       const user = await createUserUseCase.execute({
         name: 'Test user',
         email: 'test@email.com',
@@ -98,6 +97,6 @@ describe('Create Statement', () => {
         type: "withdraw" as OperationType,
         user_id: user.id
       })
-    }).toBeInstanceOf(AppError)
+    }).rejects.toBeInstanceOf(AppError)
   })
 })

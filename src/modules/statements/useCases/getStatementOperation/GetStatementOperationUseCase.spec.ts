@@ -47,9 +47,8 @@ describe('Get Statement Operation', () => {
     expect(statementOperation).toEqual(deposit)
   })
 
-  //TODO Get statement operation error
   it('should not be able to get statement operation that does not exist', async () => {
-    expect(async () => {
+    await expect(async () => {
       const user = await createUserUseCase.execute({
         name: 'Test user',
         email: 'test@email.com',
@@ -60,12 +59,11 @@ describe('Get Statement Operation', () => {
         statement_id: "Test statement id",
         user_id: user.id
       })
-    }).toBeInstanceOf(AppError)
+    }).rejects.toBeInstanceOf(AppError)
   })
 
-  //TODO Get statement operation error
   it('should not be able to get statement operation if user does not exist', async () => {
-    expect(async () => {
+    await expect(async () => {
       const user = await createUserUseCase.execute({
         name: 'Test user',
         email: 'test@email.com',
@@ -83,6 +81,6 @@ describe('Get Statement Operation', () => {
         statement_id: deposit.id,
         user_id: "Test user id"
       })
-    }).toBeInstanceOf(AppError)
+    }).rejects.toBeInstanceOf(AppError)
   })
 })

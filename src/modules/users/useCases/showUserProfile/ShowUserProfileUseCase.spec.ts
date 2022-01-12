@@ -27,11 +27,9 @@ describe('Show user profile', () => {
     expect(userProfile).toEqual(user)
   })
 
-  //TODO Show Profile Error
   it('should not be able to show invalid user profile', async () => {
-    const userProfile = await showUserProfileUseCase.execute("Test user id")
-    console.log(userProfile)
-
-    expect(userProfile).toEqual(null)
+    await expect(async () => {
+      await showUserProfileUseCase.execute("Test user id")
+    }).rejects.toBeInstanceOf(AppError)
   })
 })
