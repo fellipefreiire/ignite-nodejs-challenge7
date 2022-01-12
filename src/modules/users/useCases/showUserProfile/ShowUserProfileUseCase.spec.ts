@@ -1,19 +1,16 @@
 import { InMemoryUsersRepository } from '@modules/users/repositories/in-memory/InMemoryUsersRepository';
 import { AppError } from '@shared/errors/AppError';
-import { AuthenticateUserUseCase } from './../authenticateUser/AuthenticateUserUseCase';
 import { CreateUserUseCase } from './../createUser/CreateUserUseCase';
 import { ShowUserProfileUseCase } from './ShowUserProfileUseCase';
 
 
 let createUserUseCase: CreateUserUseCase
-let authenticateUserUseCase: AuthenticateUserUseCase
 let inMemoryUsersRepository: InMemoryUsersRepository
 let showUserProfileUseCase: ShowUserProfileUseCase
 
 describe('Show user profile', () => {
   beforeEach(() => {
     inMemoryUsersRepository = new InMemoryUsersRepository()
-    authenticateUserUseCase = new AuthenticateUserUseCase(inMemoryUsersRepository)
     showUserProfileUseCase = new ShowUserProfileUseCase(inMemoryUsersRepository)
     createUserUseCase = new CreateUserUseCase(inMemoryUsersRepository)
   })
