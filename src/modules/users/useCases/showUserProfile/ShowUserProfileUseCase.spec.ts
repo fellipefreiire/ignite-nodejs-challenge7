@@ -28,10 +28,10 @@ describe('Show user profile', () => {
   })
 
   //TODO Show Profile Error
-  // it('should not be able to show invalid user profile', async () => {
-  //   const userProfile = await showUserProfileUseCase.execute("Test user id")
-  //   console.log(userProfile)
+  it('should not be able to show invalid user profile', async () => {
+    const userProfile = await showUserProfileUseCase.execute("Test user id")
+    console.log(userProfile)
 
-  //   expect(userProfile).toEqual(null)
-  // })
+    expect(userProfile).toEqual(null)
+  })
 })

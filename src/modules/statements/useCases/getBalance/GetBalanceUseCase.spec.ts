@@ -33,11 +33,11 @@ describe('Get Balance', () => {
   })
 
   //TODO Get balance error
-  // it('should not be able to get balance from a user that does not exist', async () => {
-  //   expect(async () => {
-  //     await getBalanceUseCase.execute({
-  //       user_id: "123"
-  //     })
-  //   }).toBeInstanceOf(AppError)
-  // })
+  it('should not be able to get balance from a user that does not exist', async () => {
+    expect(async () => {
+      await getBalanceUseCase.execute({
+        user_id: "123"
+      })
+    }).toBeInstanceOf(AppError)
+  })
 })
