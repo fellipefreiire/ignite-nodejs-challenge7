@@ -11,6 +11,9 @@
     "emitDecoratorMetadata": true,
     "baseUrl": "./src",
     "paths": {
+      "@src/*": [
+        "./*"
+      ],
       "@modules/*": [
         "modules/*"
       ],
@@ -25,6 +28,9 @@
       ],
       "@utils/*": [
         "utils/*"
+      ],
+      "@database/*": [
+        "database/*"
       ]
     }
   }
